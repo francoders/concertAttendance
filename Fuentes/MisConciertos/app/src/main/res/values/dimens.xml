@@ -3,8 +3,11 @@
 
     <dimen name="tamanioLogo">100dp</dimen>
     <dimen name="tamanioLetra">22dp</dimen>
+    <dimen name="tamanioLetraBtn">17</dimen>
     <dimen name="distancia">10dp</dimen>
-    <dimen name="distanciaDos">15dp</dimen>
+    <dimen name="distanciaDos">13dp</dimen>
+    <dimen name="marginSubtitulo">8dp</dimen>
+    <dimen name="tamanioBtn">200dp</dimen>
 
 
 </resources>
