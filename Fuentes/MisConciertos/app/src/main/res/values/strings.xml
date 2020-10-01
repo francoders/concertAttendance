@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MisConciertos</string>
+    <string name="nombre_artista">Nombre Artista</string>
+    <string name="fecha_de_evento">Fecha de Evento</string>
+    <string name="genero_musical">Genero Musical</string>
+    <string name="valor_de_entrada">Valor de Entrada</string>
+
+    <string-array name="generos">
+        <item>Rock</item>
+        <item>Jazz</item>
+        <item>Pop</item>
+        <item>Reguetoon</item>
+        <item>Salsa</item>
+        <item>Metal</item>
+    </string-array>
+</resources>

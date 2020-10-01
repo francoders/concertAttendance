@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarStyle="outsideOverlay"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/distanciaDos"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tamanioLogo">
+    </ImageView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/distanciaDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/nombre_artista"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/tamanioLetra"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+        <EditText
+            android:layout_weight="1"
+            android:hint="artista"
+            android:background="@color/divider"
+            android:textSize="@dimen/tamanioLetra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/distanciaDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/fecha_de_evento"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/tamanioLetra"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="394dp"
+            android:layout_weight="1"
+            android:background="@color/divider"></CalendarView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/distanciaDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="1"
+            android:text="@string/genero_musical"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/tamanioLetra"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+        <Spinner
+            android:layout_weight="1"
+            android:id="@+id/spinnerSp"
+            android:entries="@array/generos"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/distanciaDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="1"
+            android:text="@string/valor_de_entrada"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/tamanioLetra"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+        <EditText
+            android:layout_weight="1"
+            android:background="@color/divider"
+            android:textSize="@dimen/tamanioLetra"
+            android:hint="valor"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/distanciaDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </LinearLayout>
+
+</LinearLayout>
