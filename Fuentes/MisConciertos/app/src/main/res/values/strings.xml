@@ -6,4 +6,13 @@
     <string name="valor_de_entrada">Valor de Entrada</string>
     <string name="agr_concierto">Agregar Concierto</string>
 
+    <string-array name="generos">
+        <item>Rock</item>
+        <item>Jazz</item>
+        <item>Pop</item>
+        <item>Reguetoon</item>
+        <item>Salsa</item>
+        <item>Metal</item>
+    </string-array>
+
 </resources>

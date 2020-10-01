@@ -2,7 +2,7 @@ package cl.inacap.misconciertos.dto;
 
 public class Concierto {
     private String artista;
-    private int fechaEvento;
+    private String fechaEvento;
     private String genero;
     private int valorEntrada;
     private int calificacion;
@@ -15,11 +15,11 @@ public class Concierto {
         this.artista = artista;
     }
 
-    public int getFechaEvento() {
+    public String getFechaEvento() {
         return fechaEvento;
     }
 
-    public void setFechaEvento(int fechaEvento) {
+    public void setFechaEvento(String fechaEvento) {
         this.fechaEvento = fechaEvento;
     }
 
@@ -49,6 +49,6 @@ public class Concierto {
 
     @Override
     public String toString(){
-        return artista + " " + valorEntrada;
+        return "Fecha: "+ fechaEvento +"\n"+ "Artista: " + artista +"\n"+ "Valor Entrada: " +  valorEntrada;
     }
 }

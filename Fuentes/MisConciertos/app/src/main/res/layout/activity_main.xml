@@ -46,12 +46,20 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="@string/fecha_de_evento"
+            android:layout_weight="1"
             android:textColor="@color/primary_light"
             android:textSize="@dimen/tamanioLetra"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/fechaBtn"
+            android:text="Calendario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
 
     </LinearLayout>
 
@@ -69,6 +77,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
+        <Spinner
+            android:layout_weight="1"
+            android:id="@+id/spinnerSp"
+            android:entries="@array/generos"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Spinner>
     </LinearLayout>
 
     <LinearLayout
@@ -112,6 +128,7 @@
         <TextView
             android:text="Calificacion"
             android:textSize="@dimen/tamanioLetra"
+            android:layout_weight="1"
             android:textColor="@color/primary_light"
             android:gravity="center"
             android:layout_width="match_parent"

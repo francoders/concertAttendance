@@ -4,27 +4,34 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AlertDialogLayout;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import cl.inacap.misconciertos.dto.Concierto;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText artistaTxt;
     private EditText entradaTxt;
     private Button agregarBtn;
+    private Spinner spinnerSp;
+    private Button fechaBtn;
     private ListView conciertosLv;
+    private int dia,mes,ano;
     private List<Concierto> conciertos = new ArrayList<>();
     private ArrayAdapter<Concierto> adapter;
 
@@ -37,8 +44,14 @@ public class MainActivity extends AppCompatActivity {
         this.entradaTxt = findViewById(R.id.entradaTxt);
         this.conciertosLv = findViewById(R.id.conciertosLv);
         this.agregarBtn = findViewById(R.id.agregarBtn);
+        this.spinnerSp = findViewById(R.id.spinnerSp);
+        this.fechaBtn = findViewById(R.id.fechaBtn); //(Button)
+        fechaBtn.setOnClickListener(this);
         this.adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, conciertos);
         this.conciertosLv.setAdapter(adapter);
+
+
+
         this.agregarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 List<String> errores = new ArrayList<>();
                 String artistaStr = artistaTxt.getText().toString().trim();
                 String entradaStr = entradaTxt.getText().toString().trim();
-                int entrada =0;
+                String fechaStr = fechaBtn.getText().toString().trim();
+                int entrada = 0;
+
+
 
                 try {
                     entrada = Integer.parseInt(entradaStr);
@@ -57,11 +73,13 @@ public class MainActivity extends AppCompatActivity {
                     errores.add("El valor tiene que ser mayor que 0");
                 }
 
+
                 //Concierto
                 if (errores.isEmpty()){
                     Concierto c = new Concierto();
                     c.setArtista(artistaStr);
                     c.setValorEntrada(entrada);
+                    c.setFechaEvento(fechaStr);
                     conciertos.add(c);
                     adapter.notifyDataSetChanged();
                 }else {
@@ -73,15 +91,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     private void mostrarErrores(List<String> errores) {
         String mensaje = "";
         for (String e: errores){
-            mensaje+= "-" + e + "\n";
+            mensaje+= "* " + e + "\n";
         }
         AlertDialog.Builder AlertBuilder = new AlertDialog.Builder(MainActivity.this);
         AlertBuilder.setTitle("Error al Ingresar").setMessage(mensaje)
                 .setPositiveButton("Aceptar", null).create().show();
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == fechaBtn){
+            final Calendar cal = Calendar.getInstance();
+            dia = cal.get(Calendar.DAY_OF_MONTH);
+            mes = cal.get(Calendar.MONTH);
+            ano = cal.get(Calendar.YEAR);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    fechaBtn.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                }
+            }
+            ,dia,mes,ano);
+            datePickerDialog.show();
+        }
     }
 }
