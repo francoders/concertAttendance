@@ -6,6 +6,8 @@ import androidx.appcompat.widget.AlertDialogLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button agregarBtn;
     private ListView conciertosLv;
     private List<Concierto> conciertos = new ArrayList<>();
+    private ArrayAdapter<Concierto> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         this.entradaTxt = findViewById(R.id.entradaTxt);
         this.conciertosLv = findViewById(R.id.conciertosLv);
         this.agregarBtn = findViewById(R.id.agregarBtn);
+        this.adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, conciertos);
+        this.conciertosLv.setAdapter(adapter);
         this.agregarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 List<String> errores = new ArrayList<>();
                 String artistaStr = artistaTxt.getText().toString().trim();
                 String entradaStr = entradaTxt.getText().toString().trim();
-                int entrada;
+                int entrada =0;
 
                 try {
                     entrada = Integer.parseInt(entradaStr);
@@ -52,9 +57,13 @@ public class MainActivity extends AppCompatActivity {
                     errores.add("El valor tiene que ser mayor que 0");
                 }
 
+                //Concierto
                 if (errores.isEmpty()){
-                    //Ingresar valor
-
+                    Concierto c = new Concierto();
+                    c.setArtista(artistaStr);
+                    c.setValorEntrada(entrada);
+                    conciertos.add(c);
+                    adapter.notifyDataSetChanged();
                 }else {
                     mostrarErrores(errores);
                 }

@@ -46,4 +46,9 @@ public class Concierto {
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
+
+    @Override
+    public String toString(){
+        return artista + " " + valorEntrada;
+    }
 }
