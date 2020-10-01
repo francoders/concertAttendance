@@ -86,6 +86,7 @@
             android:layout_height="wrap_content">
         </TextView>
         <EditText
+            android:id="@+id/entradaTxt"
             android:layout_weight="1"
             android:background="@color/divider"
             android:textSize="@dimen/tamanioLetra"
