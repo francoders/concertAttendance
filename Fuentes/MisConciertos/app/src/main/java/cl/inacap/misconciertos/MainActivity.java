@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -62,8 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String fechaStr = fechaBtn.getText().toString().trim();
                 int entrada = 0;
 
-
-
                 try {
                     entrada = Integer.parseInt(entradaStr);
                     if (entrada < 0){
@@ -73,8 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     errores.add("El valor tiene que ser mayor que 0");
                 }
 
+                Toast.makeText(MainActivity.this, "Concierto Exitoso", Toast.LENGTH_SHORT).show();
 
-                //Concierto
+                // --- CONCIERTO ---
                 if (errores.isEmpty()){
                     Concierto c = new Concierto();
                     c.setArtista(artistaStr);
@@ -85,12 +85,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else {
                     mostrarErrores(errores);
                 }
-
-
-
             }
         });
     }
+
     private void mostrarErrores(List<String> errores) {
         String mensaje = "";
         for (String e: errores){
