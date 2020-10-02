@@ -5,7 +5,7 @@ public class Concierto {
     private String fechaEvento;
     private String genero;
     private int valorEntrada;
-    private int calificacion;
+    private String calificacion;
 
     public String getArtista() {
         return artista;
@@ -39,16 +39,17 @@ public class Concierto {
         this.valorEntrada = valorEntrada;
     }
 
-    public int getCalificacion() {
+    public String getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(int calificacion) {
+    public void setCalificacion(String calificacion) {
         this.calificacion = calificacion;
     }
 
     @Override
     public String toString(){
-        return "Fecha: "+ fechaEvento +"\n"+ "Artista: " + artista +"\n"+ "Valor Entrada: " +  valorEntrada;
+        return "Fecha: "+ fechaEvento +"\n"+ "Artista: " + artista +"\n"+ "Valor Entrada: "
+                +  valorEntrada +"\n"+ "Calificacion: "+ calificacion;
     }
 }

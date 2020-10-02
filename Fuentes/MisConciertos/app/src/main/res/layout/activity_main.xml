@@ -129,6 +129,7 @@
         </TextView>
         <Spinner
             android:layout_weight="1"
+            android:id="@+id/calificacionSp"
             android:entries="@array/calificaciones"
             android:background="@color/divider"
             android:layout_width="match_parent"
