@@ -3,9 +3,9 @@ package cl.inacap.misconciertos.dto;
 public class Concierto {
     private String artista;
     private String fechaEvento;
-    private String genero;
+    private int genero;
     private int valorEntrada;
-    private String calificacion;
+    private int calificacion;
 
     public String getArtista() {
         return artista;
@@ -23,11 +23,11 @@ public class Concierto {
         this.fechaEvento = fechaEvento;
     }
 
-    public String getGenero() {
+    public int getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(int genero) {
         this.genero = genero;
     }
 
@@ -39,11 +39,11 @@ public class Concierto {
         this.valorEntrada = valorEntrada;
     }
 
-    public String getCalificacion() {
+    public int getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(String calificacion) {
+    public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
 

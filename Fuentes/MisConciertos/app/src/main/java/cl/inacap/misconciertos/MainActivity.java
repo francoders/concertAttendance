@@ -47,12 +47,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.conciertosLv = findViewById(R.id.conciertosLv);
         this.agregarBtn = findViewById(R.id.agregarBtn);
         this.spinnerSp = (Spinner) findViewById(R.id.spinnerSp);
-        this.calificacionSp = (Spinner) findViewById(R.id.calificacionSp);
+        this.calificacionSp = findViewById(R.id.calificacionSp);
         this.fechaBtn = findViewById(R.id.fechaBtn); //(Button)
         fechaBtn.setOnClickListener(this);
         this.adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, conciertos);
         this.conciertosLv.setAdapter(adapter);
-
+        //SPINNER
+        ArrayAdapter<CharSequence> adapterUno= ArrayAdapter.createFromResource(this, R.array.generos, android.R.layout.simple_spinner_item);
+        spinnerSp.setAdapter(adapterUno);
+        ArrayAdapter<CharSequence> adapterDos= ArrayAdapter.createFromResource(this, R.array.calificaciones, android.R.layout.simple_spinner_item);
+        calificacionSp.setAdapter(adapterDos);
 
         this.agregarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String artistaStr = artistaTxt.getText().toString().trim();
                 String entradaStr = entradaTxt.getText().toString().trim();
                 String fechaStr = fechaBtn.getText().toString().trim();
-                String calificacionStr = calificacionSp.toString().trim();
 
                 int entrada = 0;
-
 
                 try {
                     entrada = Integer.parseInt(entradaStr);
@@ -84,7 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     c.setArtista(artistaStr);
                     c.setValorEntrada(entrada);
                     c.setFechaEvento(fechaStr);
-                 // c.setCalificacion(calificacionStr);
+                    c.setCalificacion(calificacionSp.getSelectedItemPosition()+1);
+                    c.setGenero(spinnerSp.getSelectedItemPosition()+1);
                     conciertos.add(c);
                     adapter.notifyDataSetChanged();
                 }else {
