@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/fondo_menu"
     tools:context=".MainActivity">
 
     <ImageView
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/logo"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tamanioLogo">
@@ -20,22 +22,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="@string/nombre_artista"
-            android:textColor="@color/primary_light"
-            android:textSize="@dimen/tamanioLetra"
-            android:gravity="center"
+            android:text="Artista"
+            android:textColor="@color/divider"
+            android:textSize="@dimen/tamanioLetraBtn"
+            android:fontFamily="monospace"
+            android:layout_marginLeft="25dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
         <EditText
             android:id="@+id/artistaTxt"
-            android:hint="artista"
+            android:hint="   nombre artista"
             android:layout_weight="1"
+            android:layout_marginRight="@dimen/tamanioLetraBtn"
             android:background="@color/divider"
-            android:textSize="@dimen/tamanioLetra"
+            android:textSize="@dimen/tamanioLetraBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp">
         </EditText>
     </LinearLayout>
 
@@ -47,9 +51,10 @@
         <TextView
             android:text="@string/fecha_de_evento"
             android:layout_weight="1"
-            android:textColor="@color/primary_light"
-            android:textSize="@dimen/tamanioLetra"
-            android:gravity="center"
+            android:fontFamily="monospace"
+            android:textColor="@color/divider"
+            android:textSize="@dimen/tamanioLetraBtn"
+            android:layout_marginLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
@@ -57,8 +62,10 @@
             android:layout_weight="1"
             android:id="@+id/fechaBtn"
             android:text="Calendario"
+            android:layout_marginRight="20dp"
+            android:background="@color/divider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp">
         </Button>
 
     </LinearLayout>
@@ -70,10 +77,11 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_weight="1"
-            android:text="@string/genero_musical"
-            android:textColor="@color/primary_light"
-            android:textSize="@dimen/tamanioLetra"
-            android:gravity="center"
+            android:text="Genero musical"
+            android:fontFamily="monospace"
+            android:textColor="@color/divider"
+            android:textSize="@dimen/tamanioLetraBtn"
+            android:layout_marginLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
@@ -81,9 +89,10 @@
             android:layout_weight="1"
             android:id="@+id/spinnerSp"
             android:entries="@array/generos"
+            android:layout_marginRight="20dp"
             android:background="@color/divider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp">
         </Spinner>
     </LinearLayout>
 
@@ -94,10 +103,11 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_weight="1"
-            android:text="@string/valor_de_entrada"
-            android:textColor="@color/primary_light"
-            android:textSize="@dimen/tamanioLetra"
-            android:gravity="center"
+            android:fontFamily="monospace"
+            android:text="Valor entrada"
+            android:textColor="@color/divider"
+            android:textSize="@dimen/tamanioLetraBtn"
+            android:layout_marginLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
@@ -105,11 +115,12 @@
             android:id="@+id/entradaTxt"
             android:layout_weight="1"
             android:background="@color/divider"
-            android:textSize="@dimen/tamanioLetra"
-            android:hint="valor"
+            android:textSize="@dimen/tamanioLetraBtn"
+            android:hint="   valor entrada"
             android:inputType="number"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp">
         </EditText>
     </LinearLayout>
 
@@ -120,10 +131,11 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="Calificacion"
-            android:textSize="@dimen/tamanioLetra"
+            android:fontFamily="monospace"
+            android:textSize="@dimen/tamanioLetraBtn"
             android:layout_weight="1"
-            android:textColor="@color/primary_light"
-            android:gravity="center"
+            android:textColor="@color/divider"
+            android:layout_marginLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
@@ -132,8 +144,9 @@
             android:id="@+id/calificacionSp"
             android:entries="@array/calificaciones"
             android:background="@color/divider"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp">
         </Spinner>
     </LinearLayout>
 
@@ -146,9 +159,10 @@
         <Button
             android:text="@string/agr_concierto"
             android:id="@+id/agregarBtn"
+            android:fontFamily="serif"
             android:background="@color/divider"
             android:layout_width="@dimen/tamanioBtn"
-            android:textSize="@dimen/tamanioLetraBtn"
+            android:textSize="16dp"
             android:layout_height="wrap_content">
         </Button>
     </LinearLayout>
@@ -164,7 +178,7 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/marginSubtitulo"
             android:layout_marginBottom="@dimen/marginSubtitulo"
-            android:textColor="@color/primary_light"
+            android:textColor="@color/divider"
             android:textSize="@dimen/tamanioLetra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

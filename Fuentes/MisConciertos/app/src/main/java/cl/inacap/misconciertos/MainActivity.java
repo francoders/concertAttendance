@@ -67,6 +67,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String entradaStr = entradaTxt.getText().toString().trim();
                 String fechaStr = fechaBtn.getText().toString().trim();
 
+                //Validacion Artista
+                if (artistaStr.isEmpty()){
+                    errores.add("Debe ingresar un Artista");
+                }
+
+                //Validacion Valor Entrada
                 int entrada = 0;
 
                 try {
@@ -78,7 +84,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     errores.add("El valor tiene que ser mayor que 0");
                 }
 
-                Toast.makeText(MainActivity.this, "Concierto Exitoso", Toast.LENGTH_SHORT).show();
+                //Validacion Fecha
+                if (fechaStr.isEmpty()){
+                    errores.add("Debe ingresar una fecha");
+                }
+
 
                 // --- CONCIERTO ---
                 if (errores.isEmpty()){
@@ -86,9 +96,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     c.setArtista(artistaStr);
                     c.setValorEntrada(entrada);
                     c.setFechaEvento(fechaStr);
-                    c.setCalificacion(calificacionSp.getSelectedItemPosition()+1);
+                    c.setCalificacion(calificacionSp.getSelectedItemPosition());
                     c.setGenero(spinnerSp.getSelectedItemPosition()+1);
                     conciertos.add(c);
+                    Toast.makeText(MainActivity.this, "Concierto Exitoso", Toast.LENGTH_SHORT).show();
                     adapter.notifyDataSetChanged();
                 }else {
                     mostrarErrores(errores);
@@ -108,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+
+    //Calendario
     @Override
     public void onClick(View v) {
         if (v == fechaBtn){
